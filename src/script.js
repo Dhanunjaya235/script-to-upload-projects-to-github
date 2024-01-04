@@ -33,11 +33,17 @@ async function pushToGitHub(repoPath, repoName) {
         await git.push('origin', 'master');
         console.log(`Pushed to GitHub: ${repoName}`);
     } catch (error) {
-        console.error('Error pushing to GitHub:', error);
+        console.error('Error pushing to GitHub:', error.message);
     }
 }
 
 function getPocProjects(dirPath) {
+    const args = process.argv.slice(2);
+    if(args.length){
+        return fs.readdirSync(dirPath).filter(file => {
+            return fs.statSync(path.join(dirPath, file)).isDirectory() && args.find((value) => value === file);
+        });
+    }
     return fs.readdirSync(dirPath).filter(file => {
         return fs.statSync(path.join(dirPath, file)).isDirectory();
     });
