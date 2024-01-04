@@ -1,0 +1,23 @@
+{
+  "name": "script-to-upload-project-to-github",
+  "version": "1.0.0",
+  "description": "scrpit to upload projects to our github",
+  "main": "script.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "script-to-upload-projects-to-github"
+  },
+  "keywords": [
+    "script"
+  ],
+  "author": "Dhanunjaya",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "dotenv": "^16.3.1",
+    "simple-git": "^3.22.0"
+  }
+}
